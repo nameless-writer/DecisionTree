@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include "stdc++.h"
 #include "decision_tree.h"
 
 // Returns a list of 'Example's from the file 'fileloc' assuming that the
@@ -76,13 +76,13 @@ int main(){
 	target_values.push_back(">50K");
 	target_values.push_back("<=50K");
 
-	std::vector<std::vector<std::string>> dat = Reader::readData("../data/adult_attr");
+	std::vector<std::vector<std::string>> dat = Reader::readData("data/adult_attr");
 	attr_names = getAttrNames(dat);
 
-	std::vector<Example> prune_data = getData("../data/adult_data_prune", attr_names, true);
-	std::vector<Example> test_data = getData("../data/adult_test", attr_names, true);
-	std::vector<Example> examples=getData("../data/adult_data_train", attr_names, false);
-	std::vector<Example> rfexamples=getData("../data/adult_data", attr_names, false);
+	std::vector<Example> prune_data = getData("data/adult_data_prune", attr_names, true);
+	std::vector<Example> test_data = getData("data/adult_test", attr_names, true);
+	std::vector<Example> examples=getData("data/adult_data_train", attr_names, false);
+	std::vector<Example> rfexamples=getData("data/adult_data", attr_names, false);
 
 	DecisionTree dt;
 
@@ -98,7 +98,7 @@ int main(){
 	dt.printStats(test_data);
 	std::cout<<"Took "<<t2-t1<<" seconds"<<"\n\n";
 
-	t1=std::time(NULL);
+	/*t1=std::time(NULL);
 	dt.prune(prune_data);
 	t2=std::time(NULL);
 
@@ -116,7 +116,8 @@ int main(){
 	t2=std::time(NULL);
 	std::cout<<"Task 3. Random Forests with "<<i<<" trees"<<"\n";
 	rf.printStats(test_data);
-	std::cout<<"Took "<<t2-t1<<" seconds"<<"\n";
+	std::cout<<"Took "<<t2-t1<<" seconds"<<"\n";*/
 
+	getchar();
 	return 0;
 }
